@@ -1,6 +1,6 @@
-# React Native Typescript Workspaces Starter
+# React Native 0.62.2 Typescript Workspaces Starter
 
-React Native is full of hardcoded dependencies on the location of `node_modules` making it more cumbersome to set-up a package that uses shared code in a yarn workspaces mono repo. This starter repo eliminates many of the error prone [manual steps](#References) required to hoist a React Native package.
+React Native is full of hardcoded dependencies on the location of `node_modules` making it more cumbersome to set-up a package that uses shared code in a yarn workspaces mono repo. This 0.62.2 starter repo eliminates many of the error prone [manual steps](#References) required to hoist a React Native package.
 
 _Caveat: I created this repo for myself after prepping react native packages for a mono repo a couple of times. I decided to share the code along with enough documentation to help update it in the future or to help others roll their own, e.g. perhaps you want to use JavaScript instead of TypeScript. Don't expect support for this project, updates will be dependent on my future React Native needs._
 
@@ -55,7 +55,7 @@ These details are for a Mac (or another bash-like shell):
 
 ## Yarn 2
 
-This project is for only intended for Yarn 1. Yarn 2 provides a [node-modules plugin](https://github.com/yarnpkg/berry/tree/master/packages/plugin-node-modules) that can be used to get React Native working with Yarn 2 (Berry) but, at this point in time, expect a lot of effort to work around all of the issues and you may be stuck with the [nohoist](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/) approach for React Native.
+This project is for only intended for Yarn 1. Yarn 2 provides a [node-modules plugin](https://github.com/yarnpkg/berry/tree/master/packages/plugin-node-modules) that can be used to get React Native working with Yarn 2 (Berry) but, at this point in time, I don't know if you can work around any issues that arise or you'll end up stuck with the [nohoist](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/) approach for React Native.
 
 ## Recreating this repo
 
