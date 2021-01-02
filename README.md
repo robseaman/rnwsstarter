@@ -1,6 +1,6 @@
-# React Native 0.62.2 Typescript Workspaces Starter
+# React Native 0.63.3 Typescript Workspaces Starter
 
-React Native is full of hardcoded dependencies on the location of `node_modules` making it more cumbersome to set-up a package that uses shared code in a yarn workspaces mono repo. This 0.62.2 starter repo eliminates many of the error prone [manual steps](#References) required to hoist a React Native package.
+React Native is full of hardcoded dependencies on the location of `node_modules` making it more cumbersome to set-up a package that uses shared code in a yarn workspaces mono repo. This 0.63.3 starter repo eliminates many of the error prone [manual steps](#References) required to hoist a React Native package.
 
 _Caveat: I created this repo for myself after prepping react native packages for a mono repo a couple of times. I decided to share the code along with enough documentation to help update it in the future or to help others roll their own, e.g. perhaps you want to use JavaScript instead of TypeScript. Don't expect support for this project, updates will be dependent on my future React Native needs._
 
