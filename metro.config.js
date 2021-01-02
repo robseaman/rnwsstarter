@@ -1,10 +1,10 @@
-const path = require('path'); // <- add this line
 /**
  * Metro configuration for React Native
  * https://github.com/facebook/react-native
  *
  * @format
  */
+const path = require('path'); // <- add this line
 
 module.exports = {
   projectRoot: path.resolve(__dirname, '../../'), // <- add this line

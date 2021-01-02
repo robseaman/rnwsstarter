@@ -18,24 +18,25 @@ These details are for a Mac (or another bash-like shell):
 
 1. Open `myrnproject` (your whole mono repo is fine too) in your code editor and do a global replace of `rnwsstarter` with `myrnproject`.
 
-1. Make sure all packages in your mono repo are using the same version of react as this repo. i.e. All of your `package.json` files that use `react` use `16.11.0`:
+1. Rename `rnwsstarter` in filenames in the ios folder with `myrnproject`. These are in the ios `rnwsstarter.xcodeproj/xcshareddata/xcschemes` subfolder, the `rnwsstarterTests` subfolder and in the ios root.
+
+1. Make sure all packages in your mono repo are using the same version of react as this repo. i.e. All of your `package.json` files that use `react` use `16.13.1`:
 
    ```json
-   "react": "16.11.0",
+   "react": "16.13.1",
    ```
 
    Just like adding other packages to your repo, you'll likely avoid other headaches if you match the versions of other packages as well. Unlike the `react` situation, it's often not as critical and you may be able to modify the version these versions in `myrnproject` instead. Here's the major packages in your `myrnproject` for reference:
 
    ```json
     "eslint": "^6.8.0",
-    "jest": "^24.9.0",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.2",
+    "jest": "^25.1.0",
+    "typescript": "^4.0.3",
    ```
 
    _Note: See [React Native — Monorepos & Code Sharing](https://engineering.brigad.co/react-native-monorepos-code-sharing-f6c08172b417) if you need multiple versions of React Native or other packages._
 
-1. Add a `react-native` dependency to the root `package.json` of your mono repo, e.g. `mymono`, to make sure the `react-native` package is hoisted to the top:
+1. Add a `react-native` dependency to the root `package.json` of your mono repo to make sure the `react-native` package is hoisted to the top, e.g. add this if you have no other dependencies:
 
    ```json
    "dependencies": {
@@ -83,7 +84,7 @@ This process is generally detailed here to make it easier to recreate with new v
 
 1. Copy the project to the packages folder of the mono repo.
 
-1. Open packages./mobile/metro.config.js and set the projectRoot field on it as well so it looks like this:
+1. Open packages/rnwsstarter/metro.config.js and set the projectRoot field on it as well so it looks like this:
 
    ```javascript
    const path = require('path'); // <- add this line
@@ -101,12 +102,12 @@ This process is generally detailed here to make it easier to recreate with new v
    };
    ```
 
-1. Add a `react-native` dependency to the root `package.json` of your mono repo, e.g. `mymono` to make sure the `react-native` package is hoisted to the top:
+1. Add a `react-native` dependency to the root `package.json` of your mono repo to make sure the `react-native` package is hoisted to the top, e.g. add this if you have no other dependencies:
 
    ```json
    "dependencies": {
       "react-native": "*"
-
+   }
    ```
 
 1. Go to the mono root dir and run `yarn`
@@ -129,7 +130,7 @@ This process is generally detailed here to make it easier to recreate with new v
    ../../../node_modules/react-native/scripts/react-native-xcode.sh
    ```
 
-1. Reinstall the Pods from the `rnwsstarter` directory:
+1. Reinstall the Pods from the `rnwsstarter` package folder:
 
    ```bash
    cd ios
@@ -144,7 +145,7 @@ This process is generally detailed here to make it easier to recreate with new v
    yarn ios
    ```
 
-1. In Android Studio, open `android/app/build.gradle`. Search for `project.ext.react = [...]` and add this to its contents:
+1. In Android Studio, open the `android` folder and in the `Gradle Scripts` module app `build.gradle` Search for `project.ext.react = [...]` and add this to its contents:
 
    ```javascript
    entryFile: "packages/rnwsstarter/index.js",
@@ -156,6 +157,8 @@ This process is generally detailed here to make it easier to recreate with new v
 1. In `android/app/src/main/java/com/rnwsstarter/MainApplication.java`. Search for the `getJSMainModuleName` method. Replace the return of `index` with `packages/rnwsstarter/index`.
 
 1. Run in the `rnwsstarter` package with `yarn android`
+
+1. Add this README.MD file.
 
 1. Move the `rnwsstarter` package out of the mono repo, delete all of the `.gitignore` folders and do a `git init` in `rnwsstarter`.
 
